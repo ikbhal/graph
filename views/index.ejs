@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Neo4j Web App</title>
+</head>
+<body>
+    <h1>Neo4j Web App</h1>
+    
+    <% if (message) { %>
+        <p><%= message %></p>
+    <% } %>
+    
+    <h2>Add Node</h2>
+    <form action="/add-node" method="POST">
+        <input type="text" name="nodeName" placeholder="Node Name">
+        <button type="submit">Add Node</button>
+    </form>
+    
+    <h2>Nodes List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% nodes.forEach(node => { %>
+                <tr>
+                    <td><%= node.id %></td>
+                    <td><%= node.name %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
